@@ -11,11 +11,15 @@ public interface FacultyService {
     Faculty editFaculty (long id, Faculty faculty);
     void deleteFaculty (long id);
 
+
     Collection<Faculty> getFilterByColor(String color);
     Faculty getFacultyById (Long id);
 
 
     Faculty editFaculty(Long id, Faculty faculty);
+    Collection<Faculty> getAllFaculty();
 
     Collection<Student> findStudent(String name);
+
+
 }

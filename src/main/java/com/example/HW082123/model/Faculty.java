@@ -22,7 +22,7 @@ public class Faculty {
 
     }
 
-    public Faculty(long id, String color, String name) {
+    public Faculty(Long id, String color, String name) {
         this.id = id;
         this.color = color;
         this.name = name;
