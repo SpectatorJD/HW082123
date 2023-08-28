@@ -17,16 +17,16 @@ public class FacultyController {
     public FacultyController(FacultyService facultyService) {
         this.facultyService = facultyService;
     }
-    @GetMapping
+    @GetMapping("/allFaculties")
     public Collection<Faculty> getAllFaculties(){
         return facultyService.getAllFaculty();
     }
-    @GetMapping("/{id}")
+   /* @GetMapping("/{id}")
     public Faculty getFacultyById( @PathVariable Long id){
         return facultyService.getFacultyById(id);
-    }
-    @GetMapping("{id}")
-    public ResponseEntity<Faculty> getFacultyInfo(@PathVariable long id){
+    }*/
+    @GetMapping("/{id}")
+    public ResponseEntity<Faculty> getFacultyInfo(@PathVariable Long id){
         Faculty faculty = facultyService.findFaculty(id);
         if (faculty==null){
             return ResponseEntity.notFound().build();
