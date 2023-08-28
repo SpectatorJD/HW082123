@@ -26,7 +26,7 @@ public class FacultyServiceImpl implements FacultyService {
 
     @Override
     public Faculty findFaculty(long id) {
-        return facultyRepository.findById(id).get();
+        return facultyRepository.findById(id).orElseThrow(() -> new FacultyNotFoundException("Faculty not found"));
 
     }
 
@@ -64,7 +64,7 @@ public class FacultyServiceImpl implements FacultyService {
         return facultyRepository.findByName(name);
     }
 
-    @Override
+   @Override
     public Faculty getFacultyById(Long id) {
         return facultyRepository.findById(id).orElseThrow(() -> new FacultyNotFoundException("Faculty not found"));
     }

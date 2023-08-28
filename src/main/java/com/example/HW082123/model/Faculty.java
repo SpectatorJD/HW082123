@@ -3,7 +3,6 @@ package com.example.HW082123.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
-import java.util.Collection;
 import java.util.Objects;
 import java.util.Set;
 
@@ -27,6 +26,7 @@ public class Faculty {
         this.color = color;
         this.name = name;
     }
+
 
     public Set<Student> getStudents() {
         return students;

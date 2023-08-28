@@ -29,7 +29,7 @@ public class FacultyControllerMockMvcTest {
     private FacultyRepository facultyRepository;
 
     @Test
-    public void testGetAllFaculties() throws Exception{
+    public void testGetFacultyInfo() throws Exception{
         when(facultyRepository.findAll()).thenReturn(List.of(
                 new Faculty(1L, "green", "New Faculty"),
                 new Faculty(2L, "black", "New Faculty1")

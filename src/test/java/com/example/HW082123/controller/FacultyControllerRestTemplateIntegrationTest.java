@@ -10,11 +10,13 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.annotation.DirtiesContext;
 
 import java.util.List;
 
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
 public class FacultyControllerRestTemplateIntegrationTest {
     @LocalServerPort
     private int port;
@@ -42,5 +44,22 @@ public class FacultyControllerRestTemplateIntegrationTest {
         Assertions.assertThat(faculty.getName()).isEqualTo(newFaculty.getName());
         Assertions.assertThat(faculty.getColor()).isEqualTo(newFaculty.getColor());
     }
+
+
+  /*  @Test
+    public void testAllGetFaculties(){
+        ResponseEntity<Faculty> newFacultyResponse =
+                testRestTemplate.postForEntity("http://localhost:"+port+"/faculty", new Faculty(2L,"red","New Faculty"),Faculty.class);
+        Assertions.assertThat(newFacultyResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+
+
+        ResponseEntity<List> facultyEntity =
+                testRestTemplate.getForEntity("http://localhost:"+port+"/faculty/", List.class);
+        Assertions.assertThat(facultyEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+        Assertions.assertThat(facultyEntity.getBody()).isNotNull();
+
+
+    }*/
 }
 
