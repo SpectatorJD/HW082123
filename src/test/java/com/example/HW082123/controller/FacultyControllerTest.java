@@ -47,4 +47,23 @@ public class FacultyControllerTest {
         Assertions.assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/student", Student.class))
                 .isNotNull();
     }
+    /*@Test
+    public void testDeleteFaculty() throws Exception{
+        Assertions.assertThat(this.restTemplate.delete("http://localhost:" + port + "/student", facultyService.getFacultyById(5L));
+
+    }*/
+
+    @Test
+    public void testEditFaculty() throws Exception{
+        Assertions.assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/allFaculties", Faculty.class))
+                .isNotNull();
+    }
+
+    @Test
+    public void testGetFilterByColor() throws Exception{
+        Assertions.assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/color", Faculty.class))
+                .isNotNull();
+    }
+
+
 }

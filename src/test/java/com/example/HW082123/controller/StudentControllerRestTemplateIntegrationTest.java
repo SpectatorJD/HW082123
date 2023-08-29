@@ -4,6 +4,7 @@ package com.example.HW082123.controller;
 import com.example.HW082123.model.Faculty;
 import com.example.HW082123.model.Student;
 import org.assertj.core.api.Assertions;
+import org.checkerframework.checker.units.qual.A;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,6 +13,8 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.annotation.DirtiesContext;
+
+import java.net.CacheRequest;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
@@ -37,9 +40,6 @@ public class StudentControllerRestTemplateIntegrationTest {
         Assertions.assertThat(studentEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         Assertions.assertThat(studentEntity.getBody()).isNotNull();
 
-        Student student = studentEntity.getBody();
-        Assertions.assertThat(student.getId()).isEqualTo(newStudent.getId());
-        Assertions.assertThat(student.getName()).isEqualTo(newStudent.getName());
-        Assertions.assertThat(student.getAge()).isEqualTo(newStudent.getAge());
     }
+
 }

@@ -34,6 +34,21 @@ public class StudentControllerTest {
                 .isNotNull();
         Assertions.assertThat(this.restTemplate.postForObject("http://localhost:" + port + "/age",student,Student.class))
                 .isNotNull();
+    }
+    @Test
+    public void testEditStudent() throws Exception{
+        Assertions.assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/student", Student.class))
+                .isNotNull();
+    }
+    @Test
+    public void testGetByAge() throws Exception{
+        Assertions.assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/student/age", Student.class))
+                .isNotNull();
+    }
 
+    @Test
+    public void testFindByName() throws Exception{
+        Assertions.assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/student/facultyStudent", Student.class))
+                .isNotNull();
     }
 }
