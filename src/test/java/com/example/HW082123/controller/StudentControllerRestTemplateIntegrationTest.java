@@ -39,7 +39,5 @@ public class StudentControllerRestTemplateIntegrationTest {
                 testRestTemplate.getForEntity("http://localhost:"+port+"/student/"+newStudent.getId(), Student.class);
         Assertions.assertThat(studentEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         Assertions.assertThat(studentEntity.getBody()).isNotNull();
-
     }
-
 }
