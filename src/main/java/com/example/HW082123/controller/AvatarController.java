@@ -41,7 +41,7 @@ public class AvatarController {
         Avatar avatar =  avatarService.getAvatarById(avatarId);
         Path avatarPath = Path.of(avatar.getPath());
 
-        try (
+        try  (
                 InputStream is = Files.newInputStream(avatarPath);
                 OutputStream os =   response.getOutputStream();
 
